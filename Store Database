@@ -1,0 +1,11 @@
+CREATE TABLE mgc_world (id INTEGER PRIMARY KEY, name TEXT, cost INTEGER, sales INTEGER, brand TEXT);
+INSERT INTO mgc_world VALUES (1,'shirt',5,2,'gucci');
+INSERT INTO mgc_world VALUES (2,'pants',10,5,'armani');
+INSERT INTO mgc_world VALUES (3,'shorts',20,25,'dior');
+INSERT INTO mgc_world VALUES (4,'dress_shirt',13,30,'hanes');
+INSERT INTO mgc_world VALUES (5,'socks',5,50,'nike');
+
+SELECT brand,SUM(cost+sales) FROM mgc_world
+GROUP BY brand
+
+I created a simple database with the basic ideas of a store
