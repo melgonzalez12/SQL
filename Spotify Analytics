@@ -27,3 +27,17 @@ time_signature integer NOT NULL
 #Then I inserted the Spotify Data .csv into the table.
 
 #Next, I explored the data using the following SQL. 
+
+#The first thing I wanted to do was calculate the average popularity for the artists in the Spotifydate table.
+Then for every artists with a popularity with 90 or above, show their name, their average popularity, and label them as a 'Top Star'
+I used the following SQL to do that.
+
+WITH popu_avg AS (
+SELECT Spotifydata.artist_name,
+AVG(Spotifydata.popularity) AS avg_popu
+FROM Spotifydata
+GROUP BY Spotifydata.artist_name)
+
+SELECT artist_name,avg_popu,'Top Star' AS tag
+FROM popu_avg
+WHERE avg_popu >= 90
